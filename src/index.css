@@ -1,21 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --color-bg: #f9f6f1;
-  --color-surface: #ffffff;
-  --color-primary: #1a1a1a;
-  --color-secondary: #5c4a3a;
-  --color-accent: #c9a96e;
-  --color-accent-light: #f0e6d3;
-  --color-text: #1a1a1a;
-  --color-text-muted: #8a7968;
-  --color-border: #e8ddd0;
+  --color-bg: #f2f2f0;
+  --color-surface: #fafafa;
+  --color-primary: #1c1c1c;
+  --color-secondary: #4a4a4a;
+  --color-accent: #b5b5a8;
+  --color-accent-light: #e8e8e3;
+  --color-text: #1c1c1c;
+  --color-text-muted: #888884;
+  --color-border: #ddddd8;
   --font-heading: 'Cormorant Garamond', Georgia, serif;
   --font-body: 'Jost', sans-serif;
-  --shadow-sm: 0 2px 8px rgba(26, 26, 26, 0.08);
-  --shadow-md: 0 4px 20px rgba(26, 26, 26, 0.12);
-  --shadow-lg: 0 8px 40px rgba(26, 26, 26, 0.18);
-  --radius: 4px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --radius: 2px;
 }
 
 *, *::before, *::after {

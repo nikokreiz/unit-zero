@@ -2,8 +2,30 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
+const categorias = [
+  'Gorros',
+  'Chaquetas',
+  'Polerones',
+  'Pantalones',
+  'Poleras',
+  'Zapatillas',
+]
+
+const marcas = [
+  'Supreme',
+  'Stüssy',
+  'The North Face',
+  'Carhartt WIP',
+  'Corteiz',
+  'Nike / Nike SB',
+  'Adidas / Adidas Originals',
+  'New Balance',
+]
+
 function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
+  const [dropdownProductos, setDropdownProductos] = useState(false)
+  const [dropdownMarcas, setDropdownMarcas] = useState(false)
 
   return (
     <header className={styles.navbar}>
@@ -16,22 +38,72 @@ function Navbar() {
 
         {/* Navegación desktop */}
         <nav className={styles.nav}>
-          <NavLink to="/" end className={({ isActive }) => isActive ? styles.linkActivo : styles.link}>
-            Inicio
+
+          {/* Dropdown Productos */}
+          <div
+            className={styles.dropdownWrap}
+            onMouseEnter={() => setDropdownProductos(true)}
+            onMouseLeave={() => setDropdownProductos(false)}
+          >
+            <button className={styles.dropdownBtn}>
+              Productos <span className={styles.flecha}>▾</span>
+            </button>
+            {dropdownProductos && (
+              <div className={styles.dropdown}>
+                {categorias.map((cat) => (
+                  <Link
+                    key={cat}
+                    to={`/productos/${cat.toLowerCase()}`}
+                    className={styles.dropdownItem}
+                    onClick={() => setDropdownProductos(false)}
+                  >
+                    {cat}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Dropdown Marcas */}
+          <div
+            className={styles.dropdownWrap}
+            onMouseEnter={() => setDropdownMarcas(true)}
+            onMouseLeave={() => setDropdownMarcas(false)}
+          >
+            <button className={styles.dropdownBtn}>
+              Marcas <span className={styles.flecha}>▾</span>
+            </button>
+            {dropdownMarcas && (
+              <div className={styles.dropdown}>
+                {marcas.map((marca) => (
+                  <Link
+                    key={marca}
+                    to={`/marcas/${marca.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '')}`}
+                    className={styles.dropdownItem}
+                    onClick={() => setDropdownMarcas(false)}
+                  >
+                    {marca}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <NavLink
+            to="/contacto"
+            className={({ isActive }) => isActive ? styles.linkActivo : styles.link}
+          >
+            Contacto
           </NavLink>
-          <NavLink to="/#coleccion" className={styles.link}>Colección</NavLink>
-          <NavLink to="/#nosotros" className={styles.link}>Nosotros</NavLink>
-          <NavLink to="/desarrollador" className={({ isActive }) => isActive ? styles.linkActivo : styles.link}>
-            Desarrollador
-          </NavLink>
+
         </nav>
 
-        {/* Botón CTA */}
-        <Link to="/#coleccion" className={styles.cta}>
-          Ver Colección
+        {/* Carrito */}
+        <Link to="/carrito" className={styles.cta}>
+          🛒 Carrito
         </Link>
 
-        {/* Botón hamburguesa (mobile) */}
+        {/* Hamburguesa */}
         <button
           className={`${styles.hamburger} ${menuAbierto ? styles.hamburgerAbierto : ''}`}
           onClick={() => setMenuAbierto(!menuAbierto)}
@@ -44,10 +116,34 @@ function Navbar() {
 
       {/* Menú mobile */}
       <nav className={`${styles.menuMobile} ${menuAbierto ? styles.menuMobileAbierto : ''}`}>
-        <NavLink to="/" end onClick={() => setMenuAbierto(false)} className={styles.linkMobile}>Inicio</NavLink>
-        <NavLink to="/#coleccion" onClick={() => setMenuAbierto(false)} className={styles.linkMobile}>Colección</NavLink>
-        <NavLink to="/#nosotros" onClick={() => setMenuAbierto(false)} className={styles.linkMobile}>Nosotros</NavLink>
-        <NavLink to="/desarrollador" onClick={() => setMenuAbierto(false)} className={styles.linkMobile}>Desarrollador</NavLink>
+        <p className={styles.mobileSeparador}>Productos</p>
+        {categorias.map((cat) => (
+          <Link
+            key={cat}
+            to={`/productos/${cat.toLowerCase()}`}
+            className={styles.linkMobile}
+            onClick={() => setMenuAbierto(false)}
+          >
+            — {cat}
+          </Link>
+        ))}
+        <p className={styles.mobileSeparador}>Marcas</p>
+        {marcas.map((marca) => (
+          <Link
+            key={marca}
+            to={`/marcas/${marca.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '')}`}
+            className={styles.linkMobile}
+            onClick={() => setMenuAbierto(false)}
+          >
+            — {marca}
+          </Link>
+        ))}
+        <Link to="/contacto" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
+          Contacto
+        </Link>
+        <Link to="/carrito" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
+          🛒 Carrito
+        </Link>
       </nav>
     </header>
   )
