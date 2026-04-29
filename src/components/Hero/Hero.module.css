@@ -5,44 +5,14 @@
   display: flex;
   align-items: center;
   gap: 4rem;
+  min-height: calc(100vh - 70px);
 }
 
-/* --- Imagen --- */
-.imagenWrap {
-  flex: 1;
-  position: relative;
-}
-
-.imagen {
-  width: 100%;
-  height: 580px;
-  object-fit: cover;
-  object-position: top;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-border);
-  filter: grayscale(15%);
-}
-
-.tag {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  background: var(--color-primary);
-  color: var(--color-bg);
-  font-size: 0.7rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.75rem;
-}
-
-/* --- Contenido --- */
 .contenido {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 2rem;
 }
 
 .eyebrow {
@@ -54,7 +24,7 @@
 }
 
 .titulo {
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(3rem, 5vw, 4.8rem);
   font-weight: 400;
   color: var(--color-primary);
   line-height: 1.05;
@@ -65,17 +35,6 @@
   font-weight: 700;
 }
 
-.subtitulo {
-  font-size: 0.95rem;
-  color: var(--color-text-muted);
-  line-height: 1.9;
-  font-weight: 300;
-  max-width: 380px;
-  border-left: 2px solid var(--color-accent);
-  padding-left: 1rem;
-}
-
-/* --- Botones --- */
 .acciones {
   display: flex;
   gap: 0.75rem;
@@ -101,7 +60,6 @@
 .btnPrimario:hover {
   background: var(--color-secondary);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
 }
 
 .btnSecundario {
@@ -115,63 +73,176 @@
   color: var(--color-bg);
 }
 
-/* --- Stats --- */
-.stats {
+.marcasWrap {
   display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding-top: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
   border-top: 1px solid var(--color-border);
 }
 
-.stat {
+.marcasLabel {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.marcasGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+}
+
+.marcaItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  width: 64px;
+  height: 40px;
+}
+
+.marcaItem:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.marcaLogo {
+  max-width: 48px;
+  max-height: 28px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  opacity: 0.6;
+  transition: filter 0.2s, opacity 0.2s;
+}
+
+.marcaItem:hover .marcaLogo {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.galeria {
+  flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  align-items: center;
+  gap: 1rem;
 }
 
-.statNumero {
+.tag {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 2;
+  background: var(--color-primary);
+  color: var(--color-bg);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  padding: 0.3rem 0.7rem;
+}
+
+.imagenWrap {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  border-radius: var(--radius);
+}
+
+.imagen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  opacity: 0;
+  transform: scale(1.04);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.imagenActiva {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.productoInfo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.productoMarca {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.productoNombre {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-primary);
+}
+
+.productoPrecio {
   font-family: var(--font-heading);
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-primary);
-  line-height: 1;
 }
 
-.statLabel {
-  font-size: 0.72rem;
-  color: var(--color-text-muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
+.dots {
+  display: flex;
+  gap: 0.4rem;
 }
 
-.separador {
-  width: 1px;
-  height: 36px;
-  background: var(--color-border);
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
-/* --- Responsive --- */
+.dotActivo {
+  background: var(--color-primary);
+  transform: scale(1.4);
+}
+
 @media (max-width: 768px) {
   .hero {
     flex-direction: column;
     padding: 2rem 1.25rem;
-    gap: 2rem;
+    gap: 2.5rem;
+    min-height: auto;
   }
 
-  .imagen {
-    height: 420px;
+  .imagenWrap {
+    height: 380px;
   }
 
-  .contenido {
-    gap: 1.25rem;
-  }
-
-  .subtitulo {
-    max-width: 100%;
-  }
-
-  .titulo {
-    font-size: 2.8rem;
+  .marcasGrid {
+    gap: 0.6rem;
   }
 }

@@ -1,20 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
-  --color-bg: #f2f2f0;
-  --color-surface: #fafafa;
-  --color-primary: #1c1c1c;
-  --color-secondary: #4a4a4a;
-  --color-accent: #b5b5a8;
-  --color-accent-light: #e8e8e3;
-  --color-text: #1c1c1c;
-  --color-text-muted: #888884;
-  --color-border: #ddddd8;
-  --font-heading: 'Cormorant Garamond', Georgia, serif;
-  --font-body: 'Jost', sans-serif;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.12);
+  --color-bg: #1a1a1a;
+  --color-surface: #222222;
+  --color-primary: #ffffff;
+  --color-secondary: #cccccc;
+  --color-accent: #AAFF00;
+  --color-accent-light: rgba(170, 255, 0, 0.1);
+  --color-text: #ffffff;
+  --color-text-muted: #888888;
+  --color-border: #333333;
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.6);
   --radius: 2px;
 }
 

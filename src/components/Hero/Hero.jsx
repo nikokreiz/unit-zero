@@ -1,58 +1,81 @@
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { productosNuevos, marcas } from '../../data/dummy'
 import styles from './Hero.module.css'
 
 function Hero() {
+  const [indiceActual, setIndiceActual] = useState(0)
+
+  useEffect(() => {
+    const intervalo = setInterval(() => {
+      setIndiceActual((prev) => (prev + 1) % productosNuevos.length)
+    }, 3000)
+    return () => clearInterval(intervalo)
+  }, [])
+
+  const productoActual = productosNuevos[indiceActual]
+
   return (
     <section className={styles.hero}>
 
-      {/* Lado izquierdo - imagen */}
-      <div className={styles.imagenWrap}>
-        <img
-          src="https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=700&q=80"
-          alt="Modelo con ropa streetwear"
-          className={styles.imagen}
-        />
-        <span className={styles.tag}>AW 2025</span>
-      </div>
-
-      {/* Lado derecho - texto */}
       <div className={styles.contenido}>
-        <span className={styles.eyebrow}>— Streetwear Editorial</span>
+        <span className={styles.eyebrow}>— Vida Streetwear</span>
         <h1 className={styles.titulo}>
           Define tu
           <br />
           <em>propio estilo.</em>
         </h1>
-        <p className={styles.subtitulo}>
-          Ropa que habla por ti. Piezas pensadas para 
-          la calle, diseñadas con criterio. Sin reglas, 
-          solo actitud.
-        </p>
+
         <div className={styles.acciones}>
-          <Link to="/#coleccion" className={styles.btnPrimario}>
-            Ver Colección
-          </Link>
-          <Link to="/#nosotros" className={styles.btnSecundario}>
-            Nuestra Historia
-          </Link>
+          <Link to="/#coleccion" className={styles.btnPrimario}>Ver Coleccion</Link>
+          <Link to="/#productos" className={styles.btnSecundario}>Novedades</Link>
         </div>
 
-        {/* Stats */}
-        <div className={styles.stats}>
-          <div className={styles.stat}>
-            <span className={styles.statNumero}>200+</span>
-            <span className={styles.statLabel}>Prendas</span>
+        <div className={styles.marcasWrap}>
+          <span className={styles.marcasLabel}>Nuestras marcas</span>
+          <div className={styles.marcasGrid}>
+            {marcas.map((marca) => (
+              marca.logo && (
+                <a key={marca.id} href={marca.url} target="_blank" rel="noreferrer" className={styles.marcaItem}>
+                  <img src={marca.logo} alt={marca.nombre} className={styles.marcaLogo} />
+                </a>
+              )
+            ))}
           </div>
-          <div className={styles.separador} />
-          <div className={styles.stat}>
-            <span className={styles.statNumero}>15+</span>
-            <span className={styles.statLabel}>Marcas</span>
-          </div>
-          <div className={styles.separador} />
-          <div className={styles.stat}>
-            <span className={styles.statNumero}>3K+</span>
-            <span className={styles.statLabel}>Clientes</span>
-          </div>
+        </div>
+      </div>
+
+      <div className={styles.galeria}>
+        <span className={styles.tag}>NEW IN</span>
+
+        <div className={styles.imagenWrap}>
+          {productosNuevos.map((producto, index) => (
+            <img
+              key={producto.id}
+              src={producto.imagen}
+              alt={producto.nombre}
+              className={`${styles.imagen} ${index === indiceActual ? styles.imagenActiva : ''}`}
+            />
+          ))}
+        </div>
+
+        <div className={styles.productoInfo}>
+          <span className={styles.productoMarca}>{productoActual.marca}</span>
+          <span className={styles.productoNombre}>{productoActual.nombre}</span>
+          <span className={styles.productoPrecio}>
+            ${productoActual.precio.toLocaleString('es-CL')}
+          </span>
+        </div>
+
+        <div className={styles.dots}>
+          {productosNuevos.map((_, index) => (
+            <button
+              key={index}
+              className={`${styles.dot} ${index === indiceActual ? styles.dotActivo : ''}`}
+              onClick={() => setIndiceActual(index)}
+              aria-label={`Producto ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
 
