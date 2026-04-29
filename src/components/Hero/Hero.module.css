@@ -6,6 +6,7 @@
   align-items: center;
   gap: 4rem;
   min-height: calc(100vh - 70px);
+  background-color: #9a9a9aa8;
 }
 
 .contenido {
@@ -20,13 +21,34 @@
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(#000000);
+}
+
+/* Robot + textos en fila */
+.contenidoFila {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.robot {
+  height: 180px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 24px rgba(170, 255, 0, 0.389));
+}
+
+.textos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .titulo {
-  font-size: clamp(3rem, 5vw, 4.8rem);
-  font-weight: 400;
-  color: var(--color-primary);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 600;
+  color: var(--color-accent);
   line-height: 1.05;
 }
 
@@ -86,7 +108,7 @@
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: var(#000000);
 }
 
 .marcasGrid {
@@ -110,7 +132,7 @@
 }
 
 .marcaItem:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
   box-shadow: var(--shadow-sm);
 }
@@ -207,7 +229,7 @@
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .dots {
@@ -226,7 +248,7 @@
 }
 
 .dotActivo {
-  background: var(--color-primary);
+  background: var(--color-accent);
   transform: scale(1.4);
 }
 
@@ -236,6 +258,21 @@
     padding: 2rem 1.25rem;
     gap: 2.5rem;
     min-height: auto;
+    background-color: #f2f2f0;
+  }
+
+  .contenidoFila {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .robot {
+    height: 140px;
+  }
+
+  .acciones {
+    justify-content: center;
   }
 
   .imagenWrap {

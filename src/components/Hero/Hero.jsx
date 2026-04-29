@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { productosNuevos, marcas } from '../../data/dummy'
 import styles from './Hero.module.css'
+import robot from '../../assets/robot.png'
 
 function Hero() {
   const [indiceActual, setIndiceActual] = useState(0)
@@ -18,32 +19,41 @@ function Hero() {
   return (
     <section className={styles.hero}>
 
-      <div className={styles.contenido}>
-        <span className={styles.eyebrow}>— Vida Streetwear</span>
-        <h1 className={styles.titulo}>
-          Define tu
-          <br />
-          <em>propio estilo.</em>
-        </h1>
+<div className={styles.contenido}>
+  <span className={styles.eyebrow}>— Vida Streetwear</span>
 
-        <div className={styles.acciones}>
-          <Link to="/#coleccion" className={styles.btnPrimario}>Ver Coleccion</Link>
-          <Link to="/#productos" className={styles.btnSecundario}>Novedades</Link>
-        </div>
+  <div className={styles.contenidoFila}>
+    {/* Robot */}
+    <img src={robot} alt="Unit Zero mascot" className={styles.robot} />
 
-        <div className={styles.marcasWrap}>
-          <span className={styles.marcasLabel}>Nuestras marcas</span>
-          <div className={styles.marcasGrid}>
-            {marcas.map((marca) => (
-              marca.logo && (
-                <a key={marca.id} href={marca.url} target="_blank" rel="noreferrer" className={styles.marcaItem}>
-                  <img src={marca.logo} alt={marca.nombre} className={styles.marcaLogo} />
-                </a>
-              )
-            ))}
-          </div>
-        </div>
+    {/* Texto */}
+    <div className={styles.textos}>
+      <h1 className={styles.titulo}>
+        Define tu
+        <br />
+        <em>propio estilo.</em>
+      </h1>
+
+      <div className={styles.acciones}>
+        <Link to="/#coleccion" className={styles.btnPrimario}>Ver Coleccion</Link>
+        <Link to="/#productos" className={styles.btnSecundario}>Novedades</Link>
       </div>
+    </div>
+  </div>
+
+  <div className={styles.marcasWrap}>
+    <span className={styles.marcasLabel}>Nuestras marcas</span>
+    <div className={styles.marcasGrid}>
+      {marcas.map((marca) => (
+        marca.logo && (
+          <a key={marca.id} href={marca.url} target="_blank" rel="noreferrer" className={styles.marcaItem}>
+            <img src={marca.logo} alt={marca.nombre} className={styles.marcaLogo} />
+          </a>
+        )
+      ))}
+    </div>
+  </div>
+</div>
 
       <div className={styles.galeria}>
         <span className={styles.tag}>NEW IN</span>
