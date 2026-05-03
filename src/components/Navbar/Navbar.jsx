@@ -6,14 +6,14 @@ import styles from './Navbar.module.css'
 const categorias = ['Gorros', 'Chaquetas', 'Polerones', 'Pantalones', 'Poleras', 'Zapatillas']
 
 const marcas = [
-  { nombre: 'Supreme', url: 'https://www.supremenewyork.com' },
-  { nombre: 'Stussy', url: 'https://www.stussy.com' },
-  { nombre: 'The North Face', url: 'https://www.thenorthface.com' },
-  { nombre: 'Carhartt WIP', url: 'https://www.carhartt-wip.com' },
-  { nombre: 'Corteiz', url: 'https://www.crtz.xyz' },
-  { nombre: 'Nike / Nike SB', url: 'https://www.nike.com' },
-  { nombre: 'Adidas / Adidas Originals', url: 'https://www.adidas.com' },
-  { nombre: 'New Balance', url: 'https://www.newbalance.com' },
+  { nombre: 'Supreme', slug: 'supreme' },
+  { nombre: 'Stussy', slug: 'stussy' },
+  { nombre: 'The North Face', slug: 'the-north-face' },
+  { nombre: 'Carhartt WIP', slug: 'carhartt-wip' },
+  { nombre: 'Corteiz', slug: 'corteiz' },
+  { nombre: 'Nike / Nike SB', slug: 'nike-nike-sb' },
+  { nombre: 'Adidas / Adidas Originals', slug: 'adidas-adidas-originals' },
+  { nombre: 'New Balance', slug: 'new-balance' },
 ]
 
 function Navbar() {
@@ -65,16 +65,14 @@ function Navbar() {
             {dropMarcas && (
               <div className={styles.dropdown}>
                 {marcas.map((marca) => (
-                  <a
-                    key={marca.nombre}
-                    href={marca.url}
-                    target="_blank"
-                    rel="noreferrer"
+                  <Link
+                    key={marca.slug}
+                    to={`/marcas/${marca.slug}`}
                     className={styles.dropdownItem}
                     onClick={() => setDropMarcas(false)}
                   >
                     {marca.nombre}
-                  </a>
+                  </Link>
                 ))}
               </div>
             )}
@@ -116,16 +114,14 @@ function Navbar() {
         ))}
         <p className={styles.mobileSeparador}>Marcas</p>
         {marcas.map((marca) => (
-          <a
-            key={marca.nombre}
-            href={marca.url}
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            key={marca.slug}
+            to={`/marcas/${marca.slug}`}
             className={styles.linkMobile}
             onClick={() => setMenuAbierto(false)}
           >
             — {marca.nombre}
-          </a>
+          </Link>
         ))}
         <Link to="/contacto" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
           Contacto

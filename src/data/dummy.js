@@ -94,8 +94,8 @@ export const productos = [
   { id: 7, nombre: 'Gorro Nike Futura', marca: 'Nike', categoria: 'gorros', precio: 29990, imagen: gorro_nike_1, nuevo: false },
   { id: 8, nombre: 'Gorro Nike SB', marca: 'Nike', categoria: 'gorros', precio: 27990, imagen: gorro_nike_2, nuevo: true },
   { id: 9, nombre: 'Gorro Nike Heritage', marca: 'Nike', categoria: 'gorros', precio: 25990, imagen: gorro_nike_3, nuevo: false },
-  { id: 10, nombre: 'Gorro Stüssy Stock', marca: 'Stüssy', categoria: 'gorros', precio: 39990, imagen: gorro_stussy_1, nuevo: true },
-  { id: 11, nombre: 'Gorro Stüssy 8 Ball', marca: 'Stüssy', categoria: 'gorros', precio: 37990, imagen: gorro_stussy_2, nuevo: false },
+  { id: 10, nombre: 'Gorro Stüssy Stock', marca: 'Stussy', categoria: 'gorros', precio: 39990, imagen: gorro_stussy_1, nuevo: true },
+  { id: 11, nombre: 'Gorro Stüssy 8 Ball', marca: 'Stussy', categoria: 'gorros', precio: 37990, imagen: gorro_stussy_2, nuevo: false },
   { id: 12, nombre: 'Gorro Supreme Box Logo', marca: 'Supreme', categoria: 'gorros', precio: 59990, imagen: gorro_supreme_1, nuevo: true },
   { id: 13, nombre: 'Gorro Supreme Beanie', marca: 'Supreme', categoria: 'gorros', precio: 54990, imagen: gorro_supreme_2, nuevo: false },
   { id: 14, nombre: 'Gorro Supreme 5-Panel', marca: 'Supreme', categoria: 'gorros', precio: 64990, imagen: gorro_supreme_3, nuevo: true },
@@ -138,9 +138,9 @@ export const productos = [
   { id: 43, nombre: 'Polera Corteiz Rules', marca: 'Corteiz', categoria: 'poleras', precio: 54990, imagen: polera_corteiz_2, nuevo: true },
   { id: 44, nombre: 'Polera Corteiz RTW', marca: 'Corteiz', categoria: 'poleras', precio: 52990, imagen: polera_corteiz_3, nuevo: false },
   { id: 45, nombre: 'Polera Corteiz Logo', marca: 'Corteiz', categoria: 'poleras', precio: 47990, imagen: polera_corteiz_4, nuevo: false },
-  { id: 46, nombre: 'Polera Stüssy Basic', marca: 'Stüssy', categoria: 'poleras', precio: 44990, imagen: polera_stussy_1, nuevo: false },
-  { id: 47, nombre: 'Polera Stüssy Stock Logo', marca: 'Stüssy', categoria: 'poleras', precio: 49990, imagen: polera_stussy_2, nuevo: true },
-  { id: 48, nombre: 'Polera Stüssy Pigment Dyed', marca: 'Stüssy', categoria: 'poleras', precio: 54990, imagen: polera_stussy_3, nuevo: false },
+  { id: 46, nombre: 'Polera Stüssy Basic', marca: 'Stussy', categoria: 'poleras', precio: 44990, imagen: polera_stussy_1, nuevo: false },
+  { id: 47, nombre: 'Polera Stüssy Stock Logo', marca: 'Stussy', categoria: 'poleras', precio: 49990, imagen: polera_stussy_2, nuevo: true },
+  { id: 48, nombre: 'Polera Stüssy Pigment Dyed', marca: 'Stussy', categoria: 'poleras', precio: 54990, imagen: polera_stussy_3, nuevo: false },
   { id: 49, nombre: 'Polera Supreme Box Logo', marca: 'Supreme', categoria: 'poleras', precio: 79990, imagen: polera_supreme_1, nuevo: true },
 
   // POLERONES
@@ -148,7 +148,7 @@ export const productos = [
   { id: 51, nombre: 'Poleron Adidas Essential', marca: 'Adidas', categoria: 'polerones', precio: 59990, imagen: poleron_adidas_2, nuevo: false },
   { id: 52, nombre: 'Poleron Adidas Originals', marca: 'Adidas', categoria: 'polerones', precio: 69990, imagen: poleron_adidas_3, nuevo: true },
   { id: 53, nombre: 'Poleron Carhartt Chase', marca: 'Carhartt WIP', categoria: 'polerones', precio: 84990, imagen: poleron_carhartt_1, nuevo: true },
-  { id: 54, nombre: 'Poleron Stüssy Stock Logo', marca: 'Stüssy', categoria: 'polerones', precio: 89990, imagen: poleron_stussy_1, nuevo: false },
+  { id: 54, nombre: 'Poleron Stüssy Stock Logo', marca: 'Stussy', categoria: 'polerones', precio: 89990, imagen: poleron_stussy_1, nuevo: false },
   { id: 55, nombre: 'Poleron Supreme Box Logo', marca: 'Supreme', categoria: 'polerones', precio: 129990, imagen: poleron_supreme_1, nuevo: true },
   { id: 56, nombre: 'Poleron Supreme Arch Logo', marca: 'Supreme', categoria: 'polerones', precio: 119990, imagen: poleron_supreme_2, nuevo: false },
 ]
