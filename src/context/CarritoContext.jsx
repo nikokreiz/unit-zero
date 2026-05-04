@@ -30,6 +30,10 @@ export function CarritoProvider({ children }) {
     )
   }
 
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
   const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0)
   const totalPrecio = carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0)
 
@@ -39,6 +43,7 @@ export function CarritoProvider({ children }) {
       agregarAlCarrito,
       eliminarDelCarrito,
       cambiarCantidad,
+      vaciarCarrito,
       totalItems,
       totalPrecio,
     }}>

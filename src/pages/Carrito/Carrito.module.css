@@ -1,0 +1,322 @@
+.page {
+  min-height: calc(100vh - 70px);
+  background: var(--color-bg);
+  padding: 3rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1rem;
+}
+
+.titulo {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.cantidad {
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* --- Layout --- */
+.layout {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+/* --- Lista --- */
+.lista {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: box-shadow 0.2s;
+}
+
+.item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.itemImagenWrap {
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background: #2a2a2a;
+}
+
+.itemImagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.itemMarca {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.itemNombre {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+}
+
+.itemCategoria {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: capitalize;
+}
+
+.itemAcciones {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+/* --- Cantidad --- */
+.cantidad2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.cantBtn {
+  background: var(--color-surface);
+  border: none;
+  color: var(--color-primary);
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.cantBtn:hover {
+  background: var(--color-accent);
+  color: #000;
+}
+
+.cantNum {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  min-width: 20px;
+  text-align: center;
+}
+
+.itemPrecio {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.eliminar {
+  background: none;
+  border: none;
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.eliminar:hover {
+  color: #ff4444;
+}
+
+/* --- Resumen --- */
+.resumen {
+  width: 320px;
+  flex-shrink: 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 90px;
+}
+
+.resumenTitulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.resumenLinea {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+}
+
+.envioGratis {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.resumenTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.btnComprar {
+  background: var(--color-accent);
+  color: #000;
+  border: none;
+  padding: 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 16px rgba(170, 255, 0, 0.25);
+}
+
+.btnComprar:hover {
+  background: #fff;
+  box-shadow: 0 0 24px rgba(170, 255, 0, 0.4);
+}
+
+.btnSeguir {
+  display: block;
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.btnSeguir:hover {
+  color: var(--color-primary);
+}
+
+/* --- Carrito vacio --- */
+.vacio {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+
+.vacioIcon {
+  font-size: 4rem;
+}
+
+.vacioTitulo {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.vacioTexto {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.vacioBtn {
+  background: var(--color-accent);
+  color: #000;
+  padding: 0.75rem 2rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+
+.vacioBtn:hover {
+  background: #fff;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .page {
+    padding: 2rem 1.25rem;
+  }
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .resumen {
+    width: 100%;
+    position: static;
+  }
+
+  .item {
+    flex-wrap: wrap;
+  }
+
+  .itemAcciones {
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+}

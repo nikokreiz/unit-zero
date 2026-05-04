@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import nombre from '../../assets/nombre.png'
 import styles from './Navbar.module.css'
+import { useCarrito } from '../../context/CarritoContext'
 
 const categorias = ['Gorros', 'Chaquetas', 'Polerones', 'Pantalones', 'Poleras', 'Zapatillas']
 
@@ -20,6 +21,7 @@ function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false)
   const [dropProductos, setDropProductos] = useState(false)
   const [dropMarcas, setDropMarcas] = useState(false)
+  const { totalItems } = useCarrito()
 
   return (
     <header className={styles.navbar}>
@@ -86,8 +88,12 @@ function Navbar() {
           </NavLink>
         </nav>
 
+        {/* Carrito desktop */}
         <Link to="/carrito" className={styles.cta}>
           Carrito
+          {totalItems > 0 && (
+            <span className={styles.badge}>{totalItems}</span>
+          )}
         </Link>
 
         <button
@@ -126,8 +132,9 @@ function Navbar() {
         <Link to="/contacto" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
           Contacto
         </Link>
+        {/* Carrito mobile */}
         <Link to="/carrito" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
-          Carrito
+          Carrito {totalItems > 0 && `(${totalItems})`}
         </Link>
       </nav>
     </header>
@@ -135,3 +142,6 @@ function Navbar() {
 }
 
 export default Navbar
+
+
+
