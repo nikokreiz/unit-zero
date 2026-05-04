@@ -1,16 +1,89 @@
-# React + Vite
+# UNIT ZERO - E-commerce Streetwear
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Sitio web estatico desarrollado con React + Vite, orientado a promocionar productos de vestuario (streetwear) y ofrecer una experiencia responsive para desktop y mobile.
 
-Currently, two official plugins are available:
+## Historia de usuario
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Como cliente y dueno de una empresa de vestuario,
+quiero contar con un sitio web estatico en version para PC y telefono,
+para promocionar mis productos y dar a conocer la propuesta de mi marca.
 
-## React Compiler
+## Tecnologias utilizadas
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- React Router DOM
+- CSS Modules
+- Google Fonts
 
-## Expanding the ESLint configuration
+## Funcionalidades principales
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Navegacion por rutas con React Router (`/`, `/productos/:categoria`, `/marcas/:slug`, `/carrito`, `/checkout`)
+- Renderizado dinamico de productos desde dummy data
+- Sistema de carrito con Context API (agregar, eliminar, cambiar cantidad, total)
+- Filtros por categoria y marca
+- Animaciones y transiciones CSS sin librerias externas
+- Diseno responsive (desktop y mobile)
+
+## Estructura del proyecto
+
+```text
+unit-zero/
+	public/
+	src/
+		assets/
+		components/
+			CardGrid/
+			Hero/
+			Navbar/
+		context/
+			CarritoContext.jsx
+		data/
+			dummy.js
+		pages/
+			Carrito/
+			Checkout/
+			Marca/
+			Productos/
+		App.jsx
+		main.jsx
+```
+
+
+## Instalacion y ejecucion local
+
+Requisitos:
+
+- Node.js 18 o superior
+- npm
+
+Comandos:
+
+```bash
+npm install
+npm run dev
+```
+
+Build de produccion:
+
+```bash
+npm run build
+npm run preview
+```
+
+## Despliegue
+
+- Vercel: pendiente de publicacion o actualizacion de enlace
+- URL del proyecto en Vercel: agregar aqui
+
+## Datos del desarrollador
+
+- Nombre: Nicolás Patricio Rojas Soto
+- Carrera: Ingeniera Civil Informatica
+- Ciudad: Talca
+- GitHub: https://github.com/nikokreiz
+
+## Repositorio y control de versiones
+
+El avance del proyecto se documenta mediante commits en GitHub.
+
