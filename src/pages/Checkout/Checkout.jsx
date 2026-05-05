@@ -9,13 +9,36 @@ function Checkout() {
   const [resumen, setResumen] = useState({ items: 0, precio: 0 })
 
   useEffect(() => {
-    // Obtener datos de location.state (pasados desde Carrito)
+    let datosCarrito = null
+
+    // Primero intentar con location.state
     if (location.state?.items !== undefined && location.state?.precio !== undefined) {
-      setResumen({
+      datosCarrito = {
         items: location.state.items,
         precio: location.state.precio
+      }
+    }
+    // Si no hay location.state, intentar localStorage (respaldo si se recargó)
+    else {
+      const datosTempStr = localStorage.getItem('pedidoTemp')
+      if (datosTempStr) {
+        try {
+          datosCarrito = JSON.parse(datosTempStr)
+        } catch (e) {
+          console.error('Error al parsear localStorage:', e)
+        }
+      }
+    }
+
+    // Si encontramos datos, usarlos
+    if (datosCarrito && datosCarrito.items > 0) {
+      setResumen({
+        items: datosCarrito.items,
+        precio: datosCarrito.precio
       })
       vaciarCarrito()
+      // Limpiar localStorage después de usar
+      localStorage.removeItem('pedidoTemp')
     }
   }, [location.state, vaciarCarrito])
  
