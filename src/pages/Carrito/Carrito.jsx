@@ -7,19 +7,20 @@ function Carrito() {
   const navigate = useNavigate()
 
   const handleFinalizarCompra = () => {
-    // Guardar en localStorage como respaldo
+    if (totalItems === 0) return
+
+    // Guardar datos antes de vaciar
     localStorage.setItem('pedidoTemp', JSON.stringify({
       items: totalItems,
-      precio: totalPrecio
+      precio: totalPrecio,
+      timestamp: Date.now()
     }))
 
-    // Pasar datos a través de location.state
-    navigate('/checkout', {
-      state: {
-        items: totalItems,
-        precio: totalPrecio
-      }
-    })
+    // Vaciar carrito AHORA
+    vaciarCarrito()
+
+    // Navegar después
+    navigate('/checkout')
   }
 
   if (carrito.length === 0) {

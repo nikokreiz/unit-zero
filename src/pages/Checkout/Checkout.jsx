@@ -1,46 +1,26 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
-import { useCarrito } from '../../context/CarritoContext'
+import { useNavigate, Link } from 'react-router-dom'
 import styles from './Checkout.module.css'
 
 function Checkout() {
-  const { vaciarCarrito } = useCarrito()
-  const location = useLocation()
+  const navigate = useNavigate()
   const [resumen, setResumen] = useState({ items: 0, precio: 0 })
 
   useEffect(() => {
-    let datosCarrito = null
+    const datosTempStr = localStorage.getItem('pedidoTemp')
 
-    // Primero intentar con location.state
-    if (location.state?.items !== undefined && location.state?.precio !== undefined) {
-      datosCarrito = {
-        items: location.state.items,
-        precio: location.state.precio
+    if (datosTempStr) {
+      try {
+        const datosCarrito = JSON.parse(datosTempStr)
+        setResumen({
+          items: datosCarrito.items,
+          precio: datosCarrito.precio
+        })
+      } catch (e) {
+        console.error('Error al parsear localStorage:', e)
       }
     }
-    // Si no hay location.state, intentar localStorage (respaldo si se recargó)
-    else {
-      const datosTempStr = localStorage.getItem('pedidoTemp')
-      if (datosTempStr) {
-        try {
-          datosCarrito = JSON.parse(datosTempStr)
-        } catch (e) {
-          console.error('Error al parsear localStorage:', e)
-        }
-      }
-    }
-
-    // Si encontramos datos, usarlos
-    if (datosCarrito && datosCarrito.items > 0) {
-      setResumen({
-        items: datosCarrito.items,
-        precio: datosCarrito.precio
-      })
-      vaciarCarrito()
-      // Limpiar localStorage después de usar
-      localStorage.removeItem('pedidoTemp')
-    }
-  }, [location.state, vaciarCarrito])
+  }, [])
  
   return (
     <div className={styles.page}>
@@ -92,9 +72,12 @@ function Checkout() {
           </div>
         </div>
  
-        <Link to="/" className={styles.btn}>
+        <button onClick={() => {
+          localStorage.removeItem('pedidoTemp')
+          navigate('/')
+        }} className={styles.btn}>
           Volver al Inicio
-        </Link>
+        </button>
  
       </div>
     </div>
