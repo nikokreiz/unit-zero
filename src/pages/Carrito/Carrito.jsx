@@ -1,20 +1,9 @@
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useCarrito } from '../../context/CarritoContext'
 import styles from './Carrito.module.css'
 
 function Carrito() {
   const { carrito, eliminarDelCarrito, cambiarCantidad, totalItems, totalPrecio } = useCarrito()
-  const navigate = useNavigate()
-
-  const handleFinalizarCompra = () => {
-    // Guardar en sessionStorage antes de navegar
-    sessionStorage.setItem('pedidoResumen', JSON.stringify({
-      items: totalItems,
-      precio: totalPrecio,
-      fecha: new Date().toLocaleString('es-CL')
-    }))
-    navigate('/checkout')
-  }
 
   if (carrito.length === 0) {
     return (
@@ -102,9 +91,9 @@ function Carrito() {
               <span>${totalPrecio.toLocaleString('es-CL')}</span>
             </div>
 
-            <button onClick={handleFinalizarCompra} className={styles.btnComprar}>
+            <Link to="/checkout" className={styles.btnComprar}>
               Finalizar Compra
-            </button>
+            </Link>
 
             <Link to="/" className={styles.btnSeguir}>
               Seguir Comprando
