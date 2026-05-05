@@ -4,20 +4,22 @@ import { useCarrito } from '../../context/CarritoContext'
 import styles from './Checkout.module.css'
 
 function Checkout() {
-  const { totalPrecio, totalItems, vaciarCarrito } = useCarrito()
+  const { vaciarCarrito } = useCarrito()
 
-  // Guardamos los totales antes de vaciar el carrito
-  const [resumen, setResumen] = useState({ items: 0, precio: 0 })
-  const [pedidoConfirmado, setPedidoConfirmado] = useState(false)
+  // Obtener datos de sessionStorage
+  const [resumen, setResumen] = useState({ items: 0, precio: 0, fecha: '' })
 
   useEffect(() => {
-    // Guardar los valores actuales del carrito
-    if (totalItems > 0 || totalPrecio > 0) {
-      setResumen({ items: totalItems, precio: totalPrecio })
+    const datosCarro = sessionStorage.getItem('pedidoResumen')
+
+    if (datosCarro) {
+      const datosParseados = JSON.parse(datosCarro)
+      setResumen(datosParseados)
       vaciarCarrito()
-      setPedidoConfirmado(true)
+      // Limpiar sessionStorage después de usar
+      sessionStorage.removeItem('pedidoResumen')
     }
-  }, [totalItems, totalPrecio, vaciarCarrito])
+  }, [])
  
   return (
     <div className={styles.page}>
