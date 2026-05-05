@@ -182,3 +182,14 @@ export const filtrarPorCategoria = (categoria) =>
 // Filtrar por marca
 export const filtrarPorMarca = (slug) =>
   productos.filter(p => p.marca.toLowerCase().replace(/\s+/g, '-').replace(/\//g, '') === slug)
+
+// ==========================================
+// NEWSLETTER
+// ==========================================
+
+export const newsletter = {
+  titulo: 'Ofertas exclusivas en tu email',
+  descripcion: 'Suscríbete a nuestro newsletter y recibe 15% de descuento en tu primera compra + acceso anticipado a nuevas colecciones.',
+  placeholder: 'tu@email.com',
+  btnTexto: 'Suscribirse',
+}

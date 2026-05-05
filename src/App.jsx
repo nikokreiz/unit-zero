@@ -2,12 +2,14 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { CarritoProvider } from './context/CarritoContext'
 import Navbar from './components/Navbar/Navbar'
 import Hero from './components/Hero/Hero'
+import Newsletter from './components/Newsletter/Newsletter'
 import Productos from './pages/Productos/Productos'
 import Marca from './pages/Marca/Marca'
 import Carrito from './pages/Carrito/Carrito'
 import Checkout from './pages/Checkout/Checkout'
 import Contacto from './pages/Contacto/Contacto'
 import NotFound from './pages/NotFound/NotFound'
+import { newsletter } from './data/dummy'
 
 function App() {
   const devInfo = {
@@ -23,7 +25,17 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Hero />} />
+          <Route path="/" element={
+            <>
+              <Hero />
+              <Newsletter
+                titulo={newsletter.titulo}
+                descripcion={newsletter.descripcion}
+                placeholder={newsletter.placeholder}
+                btnTexto={newsletter.btnTexto}
+              />
+            </>
+          } />
           <Route path="/productos" element={<Productos />} />
           <Route path="/productos/:categoria" element={<Productos />} />
           <Route path="/marcas/:slug" element={<Marca />} />
