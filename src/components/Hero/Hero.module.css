@@ -21,7 +21,7 @@
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(#000000);
+  color: var(--color-accent);
 }
 
 /* Robot + textos en fila */
@@ -108,7 +108,7 @@
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(#000000);
+  color: var(--color-text-muted);
 }
 
 .marcasGrid {
