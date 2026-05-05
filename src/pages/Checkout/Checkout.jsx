@@ -1,24 +1,32 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styles from './Checkout.module.css'
 
 function Checkout() {
   const navigate = useNavigate()
-  const [resumen, setResumen] = useState({ items: 0, precio: 0 })
 
-  useEffect(() => {
+  // Función para obtener datos de localStorage
+  const obtenerDatosCheckout = () => {
     const datosTempStr = localStorage.getItem('pedidoTemp')
-
     if (datosTempStr) {
       try {
-        const datosCarrito = JSON.parse(datosTempStr)
-        setResumen({
-          items: datosCarrito.items,
-          precio: datosCarrito.precio
-        })
+        return JSON.parse(datosTempStr)
       } catch (e) {
         console.error('Error al parsear localStorage:', e)
+        return { items: 0, precio: 0 }
       }
+    }
+    return { items: 0, precio: 0 }
+  }
+
+  // Inicializar con datos de localStorage directamente
+  const [resumen, setResumen] = useState(obtenerDatosCheckout())
+
+  useEffect(() => {
+    // Verificar nuevamente por si cambió
+    const datos = obtenerDatosCheckout()
+    if (datos.items > 0) {
+      setResumen(datos)
     }
   }, [])
  
