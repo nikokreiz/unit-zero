@@ -2,17 +2,22 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useCarrito } from '../../context/CarritoContext'
 import styles from './Checkout.module.css'
- 
+
 function Checkout() {
   const { totalPrecio, totalItems, vaciarCarrito } = useCarrito()
- 
+
   // Guardamos los totales antes de vaciar el carrito
   const [resumen, setResumen] = useState({ items: 0, precio: 0 })
- 
+  const [pedidoConfirmado, setPedidoConfirmado] = useState(false)
+
   useEffect(() => {
-    setResumen({ items: totalItems, precio: totalPrecio })
-    vaciarCarrito()
-  }, [])
+    // Guardar los valores actuales del carrito
+    if (totalItems > 0 || totalPrecio > 0) {
+      setResumen({ items: totalItems, precio: totalPrecio })
+      vaciarCarrito()
+      setPedidoConfirmado(true)
+    }
+  }, [totalItems, totalPrecio, vaciarCarrito])
  
   return (
     <div className={styles.page}>
