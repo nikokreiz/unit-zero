@@ -7,6 +7,7 @@ import Marca from './pages/Marca/Marca'
 import Carrito from './pages/Carrito/Carrito'
 import Checkout from './pages/Checkout/Checkout'
 import Contacto from './pages/Contacto/Contacto'
+import NotFound from './pages/NotFound/NotFound'
 
 function App() {
   const devInfo = {
@@ -29,7 +30,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/contacto" element={<Contacto {...devInfo} />} />
-          <Route path="*" element={<div>404</div>} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </CarritoProvider>
