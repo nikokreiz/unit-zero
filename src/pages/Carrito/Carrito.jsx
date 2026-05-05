@@ -3,7 +3,7 @@ import { useCarrito } from '../../context/CarritoContext'
 import styles from './Carrito.module.css'
 
 function Carrito() {
-  const { carrito, eliminarDelCarrito, cambiarCantidad, totalItems, totalPrecio } = useCarrito()
+  const { carrito, eliminarDelCarrito, cambiarCantidad, totalItems, totalPrecio, vaciarCarrito } = useCarrito()
   const navigate = useNavigate()
 
   const handleFinalizarCompra = () => {
