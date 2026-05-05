@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { productosNuevos, marcas } from '../../data/dummy'
 import styles from './Hero.module.css'
 import robot from '../../assets/robot.png'
 
 function Hero() {
+  const navigate = useNavigate()
   const [indiceActual, setIndiceActual] = useState(0)
 
   useEffect(() => {
@@ -35,8 +36,8 @@ function Hero() {
       </h1>
 
       <div className={styles.acciones}>
-        <Link to="/#coleccion" className={styles.btnPrimario}>Ver Coleccion</Link>
-        <Link to="/#productos" className={styles.btnSecundario}>Novedades</Link>
+        <button onClick={() => navigate('/productos?filtro=todos')} className={styles.btnPrimario}>Ver Coleccion</button>
+        <button onClick={() => navigate('/productos?filtro=nuevo')} className={styles.btnSecundario}>Novedades</button>
       </div>
     </div>
   </div>

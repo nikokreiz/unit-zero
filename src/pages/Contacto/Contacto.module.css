@@ -1,0 +1,197 @@
+.page {
+  min-height: calc(100vh - 70px);
+  background: var(--color-bg);
+  padding: 4rem 1.5rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.eyebrow {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+/* ---- Perfil ---- */
+.perfil {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.perfilHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nombre {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+/* ---- Datos ---- */
+.perfilDatos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.tiendaDatos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.dato {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dato:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 12px rgba(170, 255, 0, 0.08);
+}
+
+.datoIcono {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.datoLabel {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.datoValor {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--color-primary);
+  font-weight: 400;
+}
+
+.datoLink {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  transition: opacity 0.2s;
+  word-break: break-all;
+}
+
+.datoLink:hover {
+  opacity: 0.75;
+}
+
+/* ---- Botones ---- */
+.btns {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnPrimario {
+  background: var(--color-accent);
+  color: #000;
+  padding: 0.75rem 1.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 12px rgba(170, 255, 0, 0.25);
+}
+
+.btnPrimario:hover {
+  background: #fff;
+  box-shadow: 0 0 20px rgba(170, 255, 0, 0.4);
+}
+
+.btnSecundario {
+  background: transparent;
+  color: var(--color-primary);
+  padding: 0.75rem 1.75rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s;
+}
+
+.btnSecundario:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* ---- Divider ---- */
+.divider {
+  height: 1px;
+  background: var(--color-border);
+  width: 100%;
+}
+
+/* ---- Tienda ---- */
+.tienda {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.tiendaTitulo {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 400;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.tiendaDesc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .page {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .perfilDatos,
+  .tiendaDatos {
+    grid-template-columns: 1fr;
+  }
+
+  .btns {
+    flex-direction: column;
+  }
+
+  .btnPrimario,
+  .btnSecundario {
+    text-align: center;
+  }
+}

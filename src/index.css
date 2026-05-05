@@ -18,13 +18,19 @@
   --radius: 2px;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #1a1a1a;
+}
 
 body {
   font-family: var(--font-body);
@@ -32,11 +38,31 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
 }
 
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; }
-h1, h2, h3, h4 { font-family: var(--font-heading); line-height: 1.2; }
-button { cursor: pointer; font-family: var(--font-body); }
+img {
+  max-width: 100%;
+  display: block;
+}
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-body);
+}

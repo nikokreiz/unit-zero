@@ -31,6 +31,7 @@ function Navbar() {
           <img src={nombre} alt="Unit Zero" className={styles.logoNombre} />
         </Link>
 
+        {/* Nav desktop */}
         <nav className={styles.nav}>
           <div
             className={styles.dropdownWrap}
@@ -88,25 +89,41 @@ function Navbar() {
           </NavLink>
         </nav>
 
-        {/* Carrito desktop */}
-        <Link to="/carrito" className={styles.cta}>
-          Carrito
-          {totalItems > 0 && (
-            <span className={styles.badge}>{totalItems}</span>
-          )}
-        </Link>
+        {/* Lado derecho: carrito desktop + carrito mobile + hamburger */}
+        <div className={styles.acciones}>
 
-        <button
-          className={`${styles.hamburger} ${menuAbierto ? styles.hamburgerAbierto : ''}`}
-          onClick={() => setMenuAbierto(!menuAbierto)}
-          aria-label="Abrir menu"
-        >
-          <span /><span /><span />
-        </button>
+          {/* Carrito desktop */}
+          <Link to="/carrito" className={styles.cta}>
+            Carrito
+            {totalItems > 0 && (
+              <span className={styles.badge}>{totalItems}</span>
+            )}
+          </Link>
+
+          {/* Carrito mobile - solo icono */}
+          <Link to="/carrito" className={styles.ctaMobile}>
+            🛒
+            {totalItems > 0 && (
+              <span className={styles.badge}>{totalItems}</span>
+            )}
+          </Link>
+
+          {/* Hamburger */}
+          <button
+            className={`${styles.hamburger} ${menuAbierto ? styles.hamburgerAbierto : ''}`}
+            onClick={() => setMenuAbierto(!menuAbierto)}
+            aria-label="Abrir menu"
+          >
+            <span /><span /><span />
+          </button>
+
+        </div>
 
       </div>
 
+      {/* Menu mobile */}
       <nav className={`${styles.menuMobile} ${menuAbierto ? styles.menuMobileAbierto : ''}`}>
+
         <p className={styles.mobileSeparador}>Productos</p>
         {categorias.map((cat) => (
           <Link
@@ -118,6 +135,7 @@ function Navbar() {
             — {cat}
           </Link>
         ))}
+
         <p className={styles.mobileSeparador}>Marcas</p>
         {marcas.map((marca) => (
           <Link
@@ -129,19 +147,19 @@ function Navbar() {
             — {marca.nombre}
           </Link>
         ))}
-        <Link to="/contacto" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
+
+        <p className={styles.mobileSeparador}>Menu</p>
+        <Link
+          to="/contacto"
+          className={styles.linkMobile}
+          onClick={() => setMenuAbierto(false)}
+        >
           Contacto
         </Link>
-        {/* Carrito mobile */}
-        <Link to="/carrito" className={styles.linkMobile} onClick={() => setMenuAbierto(false)}>
-          Carrito {totalItems > 0 && `(${totalItems})`}
-        </Link>
+
       </nav>
     </header>
   )
 }
 
 export default Navbar
-
-
-

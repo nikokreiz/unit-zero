@@ -283,3 +283,10 @@
     gap: 0.6rem;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    background-color: #1a1a1a;
+    min-height: auto;
+  }
+}

@@ -5,6 +5,7 @@
   background-color: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+  width: 100%;
 }
 
 .container {
@@ -15,28 +16,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
 }
 
 /* --- Logo --- */
 .logo {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
-}
-
-.logoImg {
-  height: 85px;
-  width: auto;
-  object-fit: contain;
-  mix-blend-mode: screen;
+  flex-shrink: 0;
 }
 
 .logoNombre {
-  height: 70px;
+  height: 28px;
   width: auto;
   object-fit: contain;
   filter: invert(1);
-  mix-blend-mode: normal;
 }
 
 /* --- Nav desktop --- */
@@ -44,6 +38,8 @@
   display: flex;
   align-items: center;
   gap: 0.25rem;
+  flex: 1;
+  justify-content: center;
 }
 
 .link, .linkActivo {
@@ -140,8 +136,17 @@
   color: var(--color-accent);
 }
 
-/* --- CTA Carrito --- */
+/* --- Acciones (carrito + hamburger) --- */
+.acciones {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* --- CTA Carrito desktop --- */
 .cta {
+  position: relative;
   background: var(--color-accent);
   color: #000;
   padding: 0.5rem 1.25rem;
@@ -159,6 +164,33 @@
   box-shadow: 0 0 20px rgba(170, 255, 0, 0.5);
 }
 
+/* --- Carrito mobile (solo icono en navbar) --- */
+.ctaMobile {
+  display: none;
+  position: relative;
+  font-size: 1.4rem;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+/* --- Badge contador --- */
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #fff;
+  color: #000;
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+
 /* --- Hamburger --- */
 .hamburger {
   display: none;
@@ -167,6 +199,7 @@
   background: none;
   border: none;
   padding: 4px;
+  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -188,11 +221,12 @@
   background: var(--color-surface);
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s ease;
+  transition: max-height 0.4s ease;
+  width: 100%;
 }
 
 .menuMobileAbierto {
-  max-height: 600px;
+  max-height: 1200px;
 }
 
 .mobileSeparador {
@@ -207,50 +241,44 @@
 
 .linkMobile {
   padding: 0.8rem 1.5rem;
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--color-text-muted);
   border-bottom: 1px solid var(--color-border);
   transition: color 0.2s;
+  display: block;
+  width: 100%;
 }
 
-.linkMobile:hover { color: var(--color-accent); }
+.linkMobile:hover {
+  color: var(--color-accent);
+}
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-  .nav, .cta { display: none; }
-  .hamburger { display: flex; }
-  .menuMobile { display: flex; }
-}
+  .nav {
+    display: none;
+  }
 
-.cta {
-  position: relative;
-  background: var(--color-accent);
-  color: #000;
-  padding: 0.5rem 1.25rem;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border-radius: var(--radius);
-  box-shadow: 0 0 12px rgba(170, 255, 0, 0.3);
-  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
-}
+  .cta {
+    display: none;
+  }
 
-.badge {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: #fff;
-  color: #000;
-  font-size: 0.6rem;
-  font-weight: 700;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #000;
+  .ctaMobile {
+    display: flex;
+    align-items: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .menuMobile {
+    display: flex;
+  }
+
+  .logoNombre {
+    height: 22px;
+  }
 }
