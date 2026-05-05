@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useCarrito } from '../../context/CarritoContext'
 import styles from './Checkout.module.css'
 
 function Checkout() {
-  const { carrito, totalPrecio, totalItems, vaciarCarrito } = useCarrito()
+  const { vaciarCarrito } = useCarrito()
+  const location = useLocation()
   const [resumen, setResumen] = useState({ items: 0, precio: 0 })
-  const [yaVaciado, setYaVaciado] = useState(false)
 
   useEffect(() => {
-    // Si hay productos en el carrito, guardarlos antes de vaciar
-    if (carrito.length > 0 && !yaVaciado) {
+    // Obtener datos de location.state (pasados desde Carrito)
+    if (location.state?.items !== undefined && location.state?.precio !== undefined) {
       setResumen({
-        items: totalItems,
-        precio: totalPrecio
+        items: location.state.items,
+        precio: location.state.precio
       })
       vaciarCarrito()
-      setYaVaciado(true)
     }
-  }, [carrito.length, totalItems, totalPrecio, vaciarCarrito, yaVaciado])
+  }, [location.state, vaciarCarrito])
  
   return (
     <div className={styles.page}>
