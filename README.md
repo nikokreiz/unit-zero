@@ -124,7 +124,6 @@ npm run preview
 
 ## Despliegue
 
-- Vercel: ✅ Publicado
 - URL del proyecto en Vercel: https://unit-zero-ashy.vercel.app
 
 ## Datos del desarrollador
